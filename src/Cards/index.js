@@ -1,3 +1,4 @@
 import { deck } from './deck';
+import { shuffle } from './shuffle';
 
-export { deck }
+export { deck, shuffle };
