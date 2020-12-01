@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Game from './../Game';
 
 const App = () => {
   return (
-    <h1>Poker Square Dummy Placeholder Heading!</h1>
+    <Fragment>
+      <h1>Poker Square Dummy Placeholder Heading!</h1>
+      <Game />
+    </Fragment>
   )
 }
 
