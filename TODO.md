@@ -5,3 +5,5 @@
 5. Allow player to move a card to an empty square
 6. Detect when all 25 cards have been dealt
 7. Calculate score of poker hands
+
+images are 162px x 229 px

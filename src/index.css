@@ -8,6 +8,8 @@
 
 .emptySlot {
   border: 1px solid black;
+  min-height: 229px;
+  min-width: 162px;
 }
 
 #card00 {
