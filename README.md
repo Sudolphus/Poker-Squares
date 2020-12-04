@@ -71,8 +71,6 @@ All that should be required for deployment is the code and a browser to run it i
 
 - [@Sudolphus](https://github.com/Sudolphus)
 
-<!-- ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References -->
+- [Dylan Clifton](https://unsplash.com/@originspoker?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) for the Logo
