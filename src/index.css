@@ -1,0 +1,136 @@
+.gameGrid {
+  min-height: 100%;
+  min-width: 100%;
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+  gap: 0 0;
+}
+
+.emptySlot {
+  border: 1px solid black;
+}
+
+#card00 {
+  grid-row: 1 / span(1);
+  grid-column: 1 / span(1);
+}
+
+#card01 {
+  grid-row: 1 / span(1);
+  grid-column: 2 / span(1);
+}
+
+#card02 {
+  grid-row: 1 / span(1);
+  grid-column: 3 / span(1);
+}
+
+#card03 {
+  grid-row: 1 / span(1);
+  grid-column: 4 / span(1);
+}
+
+#card04 {
+  grid-row: 1 / span(1);
+  grid-column: 5 / span(1);
+}
+
+#card10 {
+  grid-row: 2 / span(1);
+  grid-column: 1 / span(1);
+}
+
+#card11 {
+  grid-row: 2 / span(1);
+  grid-column: 2 / span(1);
+}
+
+#card12 {
+  grid-row: 2 / span(1);
+  grid-column: 3 / span(1);
+}
+
+#card13 {
+  grid-row: 2 / span(1);
+  grid-column: 4 / span(1);
+}
+
+#card14 {
+  grid-row: 2 / span(1);
+  grid-column: 5 / span(1);
+}
+
+#card20 {
+  grid-row: 3 / span(1);
+  grid-column: 1 / span(1);
+}
+
+#card21 {
+  grid-row: 3 / span(1);
+  grid-column: 2 / span(1);
+}
+
+#card22 {
+  grid-row: 3 / span(1);
+  grid-column: 3 / span(1);
+}
+
+#card23 {
+  grid-row: 3 / span(1);
+  grid-column: 4 / span(1);
+}
+
+#card24 {
+  grid-row: 3 / span(1);
+  grid-column: 5 / span(1);
+}
+
+#card30 {
+  grid-row: 4 / span(1);
+  grid-column: 1 / span(1);
+}
+
+#card31 {
+  grid-row: 4 / span(1);
+  grid-column: 2 / span(1);
+}
+
+#card32 {
+  grid-row: 4 / span(1);
+  grid-column: 3 / span(1);
+}
+
+#card33 {
+  grid-row: 4 / span(1);
+  grid-column: 4 / span(1);
+}
+
+#card34 {
+  grid-row: 4 / span(1);
+  grid-column: 5 / span(1);
+}
+
+#card40 {
+  grid-row: 5 / span(1);
+  grid-column: 1 / span(1);
+}
+
+#card41 {
+  grid-row: 5 / span(1);
+  grid-column: 2 / span(1);
+}
+
+#card42 {
+  grid-row: 5 / span(1);
+  grid-column: 3 / span(1);
+}
+
+#card43 {
+  grid-row: 5 / span(1);
+  grid-column: 4 / span(1);
+}
+
+#card44 {
+  grid-row: 5 / span(1);
+  grid-column: 5 / span(1);
+}

@@ -45,20 +45,23 @@ const Game = () => {
           <div className='cardRow'>
             {row.map((column, indCol) => column !== null
               ? <CardSlot
-                  key = {`${indRow}x${indCol}`} 
+                  key = { `${indRow}x${indCol}` }
                   row = { indRow }
                   column = { indCol }
                   card = { column }
                   onAddCardToSlot = { handleAddCardToGrid }
                 />
-              : <div className='emptySlot' key={`${indRow}x${indCol}`}></div>
+              : <div
+                  key = { `${indRow}x${indCol}` }
+                  className = 'emptySlot'
+                  id = { `card${indRow}x${indCol}` }>Empty</div>
             )}
           </div>)}
-        <CardInterface
-          cardsRemaining={deck.length}
-          upCard={dealtCard}
-        />
       </div>
+      <CardInterface
+        cardsRemaining={deck.length}
+        upCard={dealtCard}
+      />
     </Fragment>
   )
 }
