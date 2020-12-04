@@ -1,10 +1,12 @@
 import React from 'react';
 
-const CardSlot = ({ column, row, card, onAddCardToSlot }) => {
+const CardSlot = ({ row, column, card }) => {
   const { rank, suit } = card;
 
   return (
-    <div className='cardSlot' onClick={() => onAddCardToSlot(row, column)}>
+    <div 
+      className = 'cardSlot' 
+      id = { `card${row}x${column}` }>
       <p>Rank: { rank }</p>
       <p>Suit: { suit } </p>
     </div>

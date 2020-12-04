@@ -17,7 +17,6 @@ const Game = () => {
     const newDeck = deckSetup();
     setDeck(newDeck);
   }
-              
 
   const onNewGame = () => {
     handleShuffleNewDeck();
@@ -49,12 +48,13 @@ const Game = () => {
                   row = { indRow }
                   column = { indCol }
                   card = { column }
-                  onAddCardToSlot = { handleAddCardToGrid }
                 />
               : <div
                   key = { `${indRow}x${indCol}` }
                   className = 'emptySlot'
-                  id = { `card${indRow}x${indCol}` }>Empty</div>
+                  id = { `card${indRow}x${indCol}` }
+                  onClick={()=>handleAddCardToGrid(indRow, indCol)}
+                  >Empty</div>
             )}
           </div>)}
       </div>
