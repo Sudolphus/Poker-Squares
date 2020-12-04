@@ -4,7 +4,9 @@ const CardInterface = ({ cardsRemaining, upCard }) => {
   return (
     <Fragment>
       <div className='DeckView'>Cards remaining in deck: {cardsRemaining}</div>
-      <div className='UpCard'>{upCard.rank} of {upCard.suit}</div>
+      {upCard === null
+        ? <div className='emptyUpcard'>No Cards In Deck!</div>
+        : <div className='UpCard'>{upCard.rank} of {upCard.suit}</div>}
     </Fragment>
   )
 }

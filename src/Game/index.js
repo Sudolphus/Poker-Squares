@@ -8,38 +8,50 @@ const Game = () => {
   const [dealtCard, setDealtCard] = useState(null);
   const [grid, setGrid] = useState([[null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null]]);
 
-  const onNewGame = () => {
-    setDeck(deckSetup());
-    setGrid([[null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null]])
-  }
-
   const handleDealTopCard = () => {
-    const newDeck = [...deck];
-    const newDealtCard = newDeck.pop();
-    setDeck(newDeck);
+    const newDealtCard = deck.pop();
     setDealtCard(newDealtCard);
   }
+
+  const handleShuffleNewDeck = () => {
+    const newDeck = deckSetup();
+    setDeck(newDeck);
+  }
+              
+
+  const onNewGame = () => {
+    handleShuffleNewDeck();
+    setDealtCard(null);
+    setGrid([[null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null]]);
+  }
+
 
   const handleAddCardToGrid = (row, column) => {
     const newGrid = grid;
     newGrid[row][column] = dealtCard;
     setGrid(newGrid);
+    if (deck.length > 0) {
+      handleDealTopCard();
+    }
   }
 
   return (
     <Fragment>
       <button type='button' onClick={onNewGame}>New Game</button>
+      <button type='button' onClick={handleShuffleNewDeck}>Shuffle Deck</button>
+      <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
       <div className='gameGrid'>
         {grid.map((row, indRow) => 
           <div className='cardRow'>
-            {row.map((column, indCol) => column === null
+            {row.map((column, indCol) => column !== null
               ? <CardSlot
+                  key = {`${indRow}x${indCol}`} 
                   row = { indRow }
                   column = { indCol }
                   card = { column }
                   onAddCardToSlot = { handleAddCardToGrid }
                 />
-              : <div className='emptySlot'></div>
+              : <div className='emptySlot' key={`${indRow}x${indCol}`}></div>
             )}
           </div>)}
         <CardInterface
