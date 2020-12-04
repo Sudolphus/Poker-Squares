@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+ <img src="./poker-logo.jpeg" alt="Project logo"></a>
 </p>
 
 <h3 align="center">Poker Square</h3>
@@ -8,9 +8,9 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/Sudolphus/Poker-Squares.svg)](https://github.com/Sudolphus/Poker-Squares/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Sudolphus/Poker-Squares.svg)](https://github.com/Sudolphus/Poker-Squares/pulls)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.md)
 
 </div>
 
@@ -28,7 +28,6 @@
 - [Usage](#usage)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
-- [Contributing](../CONTRIBUTING.md)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
 
@@ -70,12 +69,10 @@ All that should be required for deployment is the code and a browser to run it i
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- [@Sudolphus](https://github.com/Sudolphus)
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors) who participated in this project.
-
-## 🎉 Acknowledgements <a name = "acknowledgement"></a>
+<!-- ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 - Hat tip to anyone whose code was used
 - Inspiration
-- References
+- References -->
