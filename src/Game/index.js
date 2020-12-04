@@ -14,7 +14,7 @@ const Game = () => {
   }
 
   const handleShuffleNewDeck = () => {
-    const newDeck = deckSetup();
+    const newDeck = deckSetup().splice(0, 25);
     setDeck(newDeck);
   }
 
