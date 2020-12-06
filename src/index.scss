@@ -17,6 +17,11 @@
   height: 352px;
 }
 
+@mixin grid-item($rowStart, $colStart) {
+  grid-row : $rowStart / span(1);
+  grid-column: $colStart / span(1);
+}
+
 #card00 {
   grid-row: 1 / span(1);
   grid-column: 1 / span(1);
