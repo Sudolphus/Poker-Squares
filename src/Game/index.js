@@ -78,14 +78,11 @@ const Game = () => {
             {row.map((column, indCol) => column !== null
               ? <CardSlot
                   key = { `Card${indRow}x${indCol}` }
-                  row = { indRow }
-                  column = { indCol }
                   card = { column }
                 />
               : <div
                   key = { `Empty${indRow}x${indCol}` }
-                  className = 'emptySlot'
-                  id = { `card${indRow}x${indCol}` }
+                  className = 'cardSlot'
                   onClick={()=>handleAddCardToGrid(indRow, indCol)}
                   >Empty</div>
             )}
@@ -98,14 +95,12 @@ const Game = () => {
         <ScoreCard
           key = {`rowScore${ind}`}
           score = {scoreObj}
-          idName = {`rowScore${ind}`}
         />
         )}
       {colScore.map((scoreObj, ind) =>
         <ScoreCard
           key = {`colScore${ind}`}
           score = {scoreObj}
-          idName = {`colScore${ind}`}
         />
         )}
       </div>

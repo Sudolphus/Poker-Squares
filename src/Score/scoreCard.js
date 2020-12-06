@@ -1,12 +1,9 @@
 import React from 'react';
 
-const ScoreCard = ({ score, idName}) => {
+const ScoreCard = ({ score }) => {
   const { name, points } = score;
   return (
-    <div
-      className = 'scoreCard'
-      id = {idName}
-    >
+    <div className = 'scoreCard'>
       <p>{ name }</p>
       <p>{ points }</p> 
     </div>

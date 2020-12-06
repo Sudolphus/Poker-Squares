@@ -1,12 +1,12 @@
 import React from 'react';
 
-const CardSlot = ({ row, column, card }) => {
+const CardSlot = ({ card }) => {
   const { rank, suit, image } = card;
 
   return (
     <div 
       className = 'cardSlot' 
-      id = { `card${row}x${column}` }>
+    >
       <img
         className='cardImage'
         src={image} 
