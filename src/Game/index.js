@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import deckSetup from './../Deck';
 import CardInterface from './../CardInterface';
 import CardSlot from './../CardSlot';
-import Score, { scoreCard } from './../Score';
+import Score, { ScoreCard } from './../Score';
 
 const Game = () => {
   const [deck, setDeck] = useState([]);
@@ -37,7 +37,7 @@ const Game = () => {
       const rowTotal = Score(checkRow);
       const newRowScore = [...rowScore];
       newRowScore[row] = rowTotal;
-      const newTotal = totalScore + rowTotal;
+      const newTotal = totalScore + rowTotal.points;
       setRowScore(newRowScore);
       setTotalScore(newTotal);
     }
@@ -49,7 +49,7 @@ const Game = () => {
       const columnTotal = Score(checkColumn);
       const newColumnScore = [...colScore];
       newColumnScore[column] = columnTotal;
-      const newTotal = totalScore + columnTotal;
+      const newTotal = totalScore + columnTotal.points;
       setColScore(newColumnScore);
       setTotalScore(newTotal);
     }
@@ -71,27 +71,44 @@ const Game = () => {
       <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
       <div className='gameGrid'>
         {grid.map((row, indRow) => 
-          <div className='cardRow'>
+          <div 
+            key = {`row${indRow}`}
+            className='cardRow'
+          >
             {row.map((column, indCol) => column !== null
               ? <CardSlot
-                  key = { `${indRow}x${indCol}` }
+                  key = { `Card${indRow}x${indCol}` }
                   row = { indRow }
                   column = { indCol }
                   card = { column }
                 />
               : <div
-                  key = { `${indRow}x${indCol}` }
+                  key = { `Empty${indRow}x${indCol}` }
                   className = 'emptySlot'
                   id = { `card${indRow}x${indCol}` }
                   onClick={()=>handleAddCardToGrid(indRow, indCol)}
                   >Empty</div>
             )}
           </div>)}
-      </div>
       <CardInterface
         cardsRemaining={deck.length}
         upCard={dealtCard}
-      />
+        />
+      {rowScore.map((scoreObj, ind) =>
+        <ScoreCard
+          key = {`rowScore${ind}`}
+          score = {scoreObj}
+          idName = {`rowScore${ind}`}
+        />
+        )}
+      {colScore.map((scoreObj, ind) =>
+        <ScoreCard
+          key = {`colScore${ind}`}
+          score = {scoreObj}
+          idName = {`colScore${ind}`}
+        />
+        )}
+      </div>
     </Fragment>
   )
 }

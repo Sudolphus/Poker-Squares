@@ -1,14 +1,17 @@
 import React from 'react';
 
 const CardSlot = ({ row, column, card }) => {
-  const { rank, suit } = card;
-  const imageName = `${rank}${suit}`.toLowerCase();
+  const { rank, suit, image } = card;
 
   return (
     <div 
       className = 'cardSlot' 
       id = { `card${row}x${column}` }>
-      <img src={require(`./../Images/${imageName}.png`)} alt={`${rank} of ${suit}`}/>
+      <img
+        className='cardImage'
+        src={image} 
+        alt={`${rank} of ${suit}`} 
+      />
     </div>
   )
 }

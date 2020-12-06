@@ -1,52 +1,107 @@
-export const AceHearts = require('./../Images/AH.png');
-export const KingHearts = require('./../Images/KH.png');
-export const QueenHearts = require('./../Images/QH.png');
-export const JackHearts = require('./../Images/JH.png');
-export const TenHearts = require('./../Images/10H.png');
-export const NineHearts = require('./../Images/9H.png');
-export const EightHearts = require('./../Images/8H.png');
-export const SevenHearts = require('./../Images/7H.png');
-export const SixHearts = require('./../Images/6H.png');
-export const FiveHearts = require('./../Images/5H.png');
-export const FourHearts = require('./../Images/4H.png');
-export const ThreeHearts = require('./../Images/3H.png');
-export const TwoHearts = require('./../Images/2H.png');
-export const AceDiamonds = require('./../Images/AD.png');
-export const KingDiamonds = require('./../Images/KD.png');
-export const QueenDiamonds = require('./../Images/QD.png');
-export const JackDiamonds = require('./../Images/JD.png');
-export const TenDiamonds = require('./../Images/10D.png');
-export const NineDiamonds = require('./../Images/9D.png');
-export const EightDiamonds = require('./../Images/8D.png');
-export const SevenDiamonds = require('./../Images/7D.png');
-export const SixDiamonds = require('./../Images/6D.png');
-export const FiveDiamonds = require('./../Images/5D.png');
-export const FourDiamonds = require('./../Images/4D.png');
-export const ThreeDiamonds = require('./../Images/3D.png');
-export const TwoDiamonds = require('./../Images/2D.png');
-export const AceSpades = require('./../Images/AS.png');
-export const KingSpades = require('./../Images/KS.png');
-export const QueenSpades = require('./../Images/QS.png');
-export const JackSpades = require('./../Images/JS.png');
-export const TenSpades = require('./../Images/10S.png');
-export const NineSpades = require('./../Images/9S.png');
-export const EightSpades = require('./../Images/8S.png');
-export const SevenSpades = require('./../Images/7S.png');
-export const SixSpades = require('./../Images/6S.png');
-export const FiveSpades = require('./../Images/5S.png');
-export const FourSpades = require('./../Images/4S.png');
-export const ThreeSpades = require('./../Images/3S.png');
-export const TwoSpades = require('./../Images/2S.png');
-export const AceClubs = require('./../Images/AC.png');
-export const KingClubs = require('./../Images/KC.png');
-export const QueenClubs = require('./../Images/QC.png');
-export const JackClubs = require('./../Images/JC.png');
-export const TenClubs = require('./../Images/10C.png');
-export const NineClubs = require('./../Images/9C.png');
-export const EightClubs = require('./../Images/8C.png');
-export const SevenClubs = require('./../Images/7C.png');
-export const SixClubs = require('./../Images/6C.png');
-export const FiveClubs = require('./../Images/5C.png');
-export const FourClubs = require('./../Images/4C.png');
-export const ThreeClubs = require('./../Images/3C.png');
-export const TwoClubs = require('./../Images/2C.png');
+import AceHearts from './../Images/AH.png';
+import KingHearts from './../Images/KH.png';
+import QueenHearts from './../Images/QH.png';
+import JackHearts from './../Images/JH.png';
+import TenHearts from './../Images/10H.png';
+import NineHearts from './../Images/9H.png';
+import EightHearts from './../Images/8H.png';
+import SevenHearts from './../Images/7H.png';
+import SixHearts from './../Images/6H.png';
+import FiveHearts from './../Images/5H.png';
+import FourHearts from './../Images/4H.png';
+import ThreeHearts from './../Images/3H.png';
+import TwoHearts from './../Images/2H.png';
+import AceDiamonds from './../Images/AD.png';
+import KingDiamonds from './../Images/KD.png';
+import QueenDiamonds from './../Images/QD.png';
+import JackDiamonds from './../Images/JD.png';
+import TenDiamonds from './../Images/10D.png';
+import NineDiamonds from './../Images/9D.png';
+import EightDiamonds from './../Images/8D.png';
+import SevenDiamonds from './../Images/7D.png';
+import SixDiamonds from './../Images/6D.png';
+import FiveDiamonds from './../Images/5D.png';
+import FourDiamonds from './../Images/4D.png';
+import ThreeDiamonds from './../Images/3D.png';
+import TwoDiamonds from './../Images/2D.png';
+import AceSpades from './../Images/AS.png';
+import KingSpades from './../Images/KS.png';
+import QueenSpades from './../Images/QS.png';
+import JackSpades from './../Images/JS.png';
+import TenSpades from './../Images/10S.png';
+import NineSpades from './../Images/9S.png';
+import EightSpades from './../Images/8S.png';
+import SevenSpades from './../Images/7S.png';
+import SixSpades from './../Images/6S.png';
+import FiveSpades from './../Images/5S.png';
+import FourSpades from './../Images/4S.png';
+import ThreeSpades from './../Images/3S.png';
+import TwoSpades from './../Images/2S.png';
+import AceClubs from './../Images/AC.png';
+import KingClubs from './../Images/KC.png';
+import QueenClubs from './../Images/QC.png';
+import JackClubs from './../Images/JC.png';
+import TenClubs from './../Images/10C.png';
+import NineClubs from './../Images/9C.png';
+import EightClubs from './../Images/8C.png';
+import SevenClubs from './../Images/7C.png';
+import SixClubs from './../Images/6C.png';
+import FiveClubs from './../Images/5C.png';
+import FourClubs from './../Images/4C.png';
+import ThreeClubs from './../Images/3C.png';
+import TwoClubs from './../Images/2C.png';
+
+export {
+  AceClubs,
+  KingClubs,
+  QueenClubs,
+  JackClubs,
+  TenClubs,
+  NineClubs,
+  EightClubs,
+  SevenClubs,
+  SixClubs,
+  FiveClubs,
+  FourClubs,
+  ThreeClubs,
+  TwoClubs,
+  AceSpades,
+  KingSpades,
+  QueenSpades,
+  JackSpades,
+  TenSpades,
+  NineSpades,
+  EightSpades,
+  SevenSpades,
+  SixSpades,
+  FiveSpades,
+  FourSpades,
+  ThreeSpades,
+  TwoSpades,
+  AceHearts,
+  KingHearts,
+  QueenHearts,
+  JackHearts,
+  TenHearts,
+  NineHearts,
+  EightHearts,
+  SevenHearts,
+  SixHearts,
+  FiveHearts,
+  FourHearts,
+  ThreeHearts,
+  TwoHearts,
+  AceDiamonds,
+  KingDiamonds,
+  QueenDiamonds,
+  JackDiamonds,
+  TenDiamonds,
+  NineDiamonds,
+  EightDiamonds,
+  SevenDiamonds,
+  SixDiamonds,
+  FiveDiamonds,
+  FourDiamonds,
+  ThreeDiamonds,
+  TwoDiamonds,
+}

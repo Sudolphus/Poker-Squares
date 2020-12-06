@@ -1,15 +1,20 @@
 .gameGrid {
-  height: 1145px;
-  width: 810px;
+  width: 1380px;
+  height: 2112px;
   display: grid;
-  grid-template: repeat(5, 1fr) / repeat(5, 1fr);
+  grid-template: repeat(6, 1fr) / repeat(6, 1fr);
   gap: 0 0;
 }
 
-.emptySlot {
+.cardImage {
+  width: 230px;
+  height: 352px;
+}
+
+.emptySlot, .scoreCard {
   border: 1px solid black;
-  height: 229px;
-  width: 162px;
+  width: 230px;
+  height: 352px;
 }
 
 #card00 {
@@ -135,4 +140,14 @@
 #card44 {
   grid-row: 5 / span(1);
   grid-column: 5 / span(1);
+}
+
+#rowScore0 {
+  grid-row: 1 / span(1);
+  grid-column: 6 / span(1);
+}
+
+#rowScore1 {
+  grid-row: 2 / span(1);
+  grid-column: 6 / span(1);
 }
