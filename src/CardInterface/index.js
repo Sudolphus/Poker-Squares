@@ -3,10 +3,18 @@ import React, { Fragment } from 'react';
 const CardInterface = ({ cardsRemaining, upCard }) => {
   return (
     <Fragment>
-      <div className='DeckView'>Cards remaining in deck: {cardsRemaining}</div>
+      <p className='deckView'>Cards remaining in deck: {cardsRemaining}</p>
       {upCard === null
-        ? <div className='emptyUpcard'>No Cards In Deck!</div>
-        : <div className='UpCard'>{upCard.rank} of {upCard.suit}</div>}
+        ? <div className='upCard'>
+            <p>None!</p>
+          </div>
+        : <div className='upCard'>
+            <img
+              className='cardImage'
+              src={upCard.image}
+              alt={`${upCard.rank} of ${upCard.suit}`}
+            />
+          </div>}
     </Fragment>
   )
 }

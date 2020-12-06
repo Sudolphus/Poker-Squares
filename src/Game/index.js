@@ -90,7 +90,7 @@ const Game = () => {
       <CardInterface
         cardsRemaining={deck.length}
         upCard={dealtCard}
-        />
+      />
       {rowScore.map((scoreObj, ind) =>
         <ScoreCard
           key = {`rowScore${ind}`}
