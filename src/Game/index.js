@@ -83,22 +83,23 @@ const Game = () => {
                 >Empty</div>
           )
         )}
-      <CardInterface
-        cardsRemaining={deck.length}
-        upCard={dealtCard}
-      />
-      {rowScore.map((scoreObj, ind) =>
-        <ScoreCard
-          key = {`rowScore${ind}`}
-          score = {scoreObj}
+        <CardInterface
+          cardsRemaining={deck.length}
+          upCard={dealtCard}
         />
-        )}
-      {colScore.map((scoreObj, ind) =>
-        <ScoreCard
-          key = {`colScore${ind}`}
-          score = {scoreObj}
-        />
-        )}
+        {rowScore.map((scoreObj, ind) =>
+          <ScoreCard
+            key = {`rowScore${ind}`}
+            score = {scoreObj}
+          />
+          )}
+        {colScore.map((scoreObj, ind) =>
+          <ScoreCard
+            key = {`colScore${ind}`}
+            score = {scoreObj}
+          />
+          )}
+        <ScoreCard score = {{name: 'Total Score', points: totalScore}} />
       </div>
     </Fragment>
   )

@@ -70,6 +70,10 @@ $num-cols: 6;
   }
 }
 
+.scoreCard:last-of-type {
+  @include grid-item(6, 6);
+}
+
 .deckView {
   @include grid-item(7, 3);
 }
