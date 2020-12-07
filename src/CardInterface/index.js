@@ -3,7 +3,9 @@ import React, { Fragment } from 'react';
 const CardInterface = ({ cardsRemaining, upCard }) => {
   return (
     <Fragment>
-      <p className='deckView'>Cards remaining in deck: {cardsRemaining}</p>
+      <div className='deckView'>
+        Cards remaining in deck: {cardsRemaining}
+      </div>
       {upCard === null
         ? <div className='upCard'>
             <p>None!</p>

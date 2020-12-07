@@ -71,22 +71,18 @@ const Game = () => {
       <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
       <div className='gameGrid'>
         {grid.map((row, indRow) => 
-          <div 
-            key = {`row${indRow}`}
-            className='cardRow'
-          >
-            {row.map((column, indCol) => column !== null
-              ? <CardSlot
-                  key = { `Card${indRow}x${indCol}` }
-                  card = { column }
-                />
-              : <div
-                  key = { `Empty${indRow}x${indCol}` }
-                  className = 'cardSlot'
-                  onClick={()=>handleAddCardToGrid(indRow, indCol)}
-                  >Empty</div>
-            )}
-          </div>)}
+          row.map((column, indCol) => column !== null
+            ? <CardSlot
+                key = { `Card${indRow}x${indCol}` }
+                card = { column }
+              />
+            : <div
+                key = { `Empty${indRow}x${indCol}` }
+                className = 'cardSlot'
+                onClick={()=>handleAddCardToGrid(indRow, indCol)}
+                >Empty</div>
+          )
+        )}
       <CardInterface
         cardsRemaining={deck.length}
         upCard={dealtCard}

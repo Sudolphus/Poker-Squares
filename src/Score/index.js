@@ -1,4 +1,4 @@
-import scoreCard from './scoreCard';
+import ScoreCard from './scoreCard';
 
 const Score = arr => {
   const rankings = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'];
@@ -66,4 +66,4 @@ const Score = arr => {
 }
 
 export default Score;
-export { scoreCard };
+export { ScoreCard };

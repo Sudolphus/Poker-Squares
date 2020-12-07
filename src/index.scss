@@ -1,5 +1,5 @@
-$slot-width: 230px;
-$slot-height: 352px;
+$slot-width: 115px;
+$slot-height: 176px;
 $num-rows: 7;
 $num-cols: 6;
 
@@ -23,15 +23,39 @@ $num-cols: 6;
 }
 
 @mixin grid-item($rowStart, $colStart) {
-  grid-row : $rowStart / span(1);
-  grid-column: $colStart / span(1);
+  grid-row-start: $rowStart;
+  grid-row-end: $rowStart + 1;
+  grid-column-start: $colStart;
+  grid-column-end: $colStart + 1;
 }
 
 @for $i from 1 through 5 {
-  @for $j from 1 through 5 {
-    .cardSlot:nth-of-type(#{$i * $j}) {
-      @include grid-item($i, $j)
-    }
+  .cardSlot:nth-of-type(#{$i}) {
+    @include grid-item(1, $i);
+  }
+}
+
+@for $i from 6 through 10 {
+  .cardSlot:nth-of-type(#{$i}) {
+    @include grid-item(2, $i - 5);
+  }
+}
+
+@for $i from 11 through 15 {
+  .cardSlot:nth-of-type(#{$i}) {
+    @include grid-item(3, $i - 10);
+  }
+}
+
+@for $i from 16 through 20 {
+  .cardSlot:nth-of-type(#{$i}) {
+    @include grid-item(4, $i - 15);
+  }
+}
+
+@for $i from 21 through 25 {
+  .cardSlot:nth-of-type(#{$i}) {
+    @include grid-item(5, $i - 20);
   }
 }
 
@@ -40,10 +64,9 @@ $num-cols: 6;
     @include grid-item($i, 6);
   }
 }
-
-@for $i from 1 through 5 {
-  .scoreCard:nth-of-type(#{$i + 5}) {
-    @include grid-item(6, $i);
+@for $i from 6 through 10 {
+  .scoreCard:nth-of-type(#{$i}) {
+    @include grid-item(6, $i - 5);
   }
 }
 
