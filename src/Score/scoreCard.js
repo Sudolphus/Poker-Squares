@@ -1,8 +1,8 @@
 import React from 'react';
 
 const ScoreCard = ({ score }) => {
-  const name = score ? score.name : 'Incomplete';
-  const points = score ? score.points : 0;
+  const name = score ? score.name : null;
+  const points = score ? score.points : null;
   
   return (
     <div className = 'scoreCard'>

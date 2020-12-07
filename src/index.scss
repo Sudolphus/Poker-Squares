@@ -64,9 +64,11 @@ $num-cols: 6;
     @include grid-item($i, 6);
   }
 }
+
 @for $i from 6 through 10 {
   .scoreCard:nth-of-type(#{$i}) {
     @include grid-item(6, $i - 5);
+    margin-top: $slot-height / 4;
   }
 }
 
