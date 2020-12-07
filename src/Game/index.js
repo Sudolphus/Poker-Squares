@@ -66,9 +66,11 @@ const Game = () => {
 
   return (
     <Fragment>
-      <button type='button' onClick={onNewGame}>New Game</button>
-      <button type='button' onClick={handleShuffleNewDeck}>Shuffle Deck</button>
-      <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
+      <div className='buttonContainer'>
+        <button type='button' onClick={onNewGame}>New Game</button>
+        <button type='button' onClick={handleShuffleNewDeck}>Shuffle Deck</button>
+        <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
+      </div>
       <div className='gameGrid'>
         {grid.map((row, indRow) => 
           row.map((column, indCol) => column !== null
