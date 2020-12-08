@@ -1,35 +1,33 @@
 import ScoreCard from './scoreCard';
-import isStraight from './straight';
-import isFlush from './flush';
 
 const Score = hand => {
-  const ranks = hand.map(card => card.rank).sort();
-  const straight = isStraight(ranks);
-  const flush = isFlush(hand);
-  const fourOfAKind = ranks[0] === ranks[3] || ranks[1] === ranks[4];
-  const fullHouse = (ranks[0] === ranks[1] && ranks[2] === ranks[4]) || (ranks[0] === ranks[2] && ranks[3] === ranks[4]);
-  const threeOfAKind = ranks[0] === ranks[2] || ranks[1] === ranks[3] || ranks[2] === ranks[4];
-  const twoPair = (ranks[0] === ranks[1] && ranks[2] === ranks[3]) || (ranks[1] === ranks[2] && ranks[3] === ranks[4]) || (ranks[0] === ranks[1] && ranks[3] === ranks[4]);
-  const onePair = ranks[0] === ranks[1] || ranks[1] === ranks[2] || ranks[2] === ranks[3] || ranks[3] === ranks[4];
+  const rankings = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
+  const ranks = hand.map(card => rankings.indexOf(card.rank)).sort((x,y) => x-y);
+  console.log(ranks);
+  const suits = hand.map(card => card.suit).sort();
+  const straight = ranks[0] === 0
+    ? (ranks[1] === 1 && ranks[2] === 2 && ranks[3] === 3 && ranks[4] === 4) || (ranks[1] === 9 && ranks[2] === 10 && ranks[3] === 11 && ranks[4] === 12)
+    : ranks[1] - ranks[0] === 1 && ranks[2] - ranks[1] === 1 && ranks[3] - ranks[2] === 1 && ranks[4] - ranks[3] === 1;
+  const flush = suits[0] === suits[4];
 
   let [name, points] = [null, null];
   if (straight && flush && ranks.includes('Ace') && ranks.includes('King')) {
     [name, points] = ['Royal Flush', 100];
   } else if (straight && flush) {
     [name, points] = ['Straight Flush', 75];
-  } else if (fourOfAKind) {
+  } else if (ranks[0] === ranks[3] || ranks[1] === ranks[4]) {
     [name, points] = ['Four of a Kind', 50];
-  } else if (fullHouse) {
+  } else if ((ranks[0] === ranks[1] && ranks[2] === ranks[4]) || (ranks[0] === ranks[2] && ranks[3] === ranks[4])) {
     [name, points] = ['Full House', 25];
   } else if (flush) {
     [name, points] = ['Flush', 20];
   } else if (straight) {
     [name, points] = ['Straight', 15];
-  } else if (threeOfAKind) {
+  } else if (ranks[0] === ranks[2] || ranks[1] === ranks[3] || ranks[2] === ranks[4]) {
     [name, points] = ['Three of a Kind', 10];
-  } else if (twoPair) {
+  } else if ((ranks[0] === ranks[1] && ranks[2] === ranks[3]) || (ranks[1] === ranks[2] && ranks[3] === ranks[4]) || (ranks[0] === ranks[1] && ranks[3] === ranks[4])) {
     [name, points] = ['Two Pair', 5];
-  } else if (onePair) {
+  } else if (ranks[0] === ranks[1] || ranks[1] === ranks[2] || ranks[2] === ranks[3] || ranks[3] === ranks[4]) {
     [name, points] = ['One Pair', 2];
   } else {
     [name, points] = ['Nothing', 0];
