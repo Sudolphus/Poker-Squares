@@ -1,7 +1,7 @@
 $slot-width: 115px;
 $slot-height: 176px;
 $num-rows: 7;
-$num-cols: 9;
+$num-cols: 10;
 
 .gameGrid {
   width: $slot-width * $num-cols;
@@ -57,7 +57,7 @@ $num-cols: 9;
   }
 }
 
-.scoreCard:last-of-type {
+.totalScore {
   @include grid-item(5, 5);
   @include slotRules();
 }
@@ -80,4 +80,27 @@ $num-cols: 9;
 .upCard {
   @include grid-item(0, 9);
   @include slotRules();
+}
+
+#rulesText {
+  grid-row-start: 2;
+  grid-row-end: $num-rows;
+  grid-column-start: 8;
+  grid-column-end: $num-cols;
+  h3 {
+    text-align: center;
+  }
+  table {
+    margin-right: auto;
+    margin-left: auto;
+    th:first-of-type {
+      text-align: left;
+    }
+    tbody > tr {
+      outline: 0.5px solid black;
+    }
+    .rulesTablePoints {
+      text-align: right;
+    }
+  }
 }

@@ -4,6 +4,7 @@ import deckSetup from './../Deck';
 import CardInterface from './../CardInterface';
 import CardSlot from './../CardSlot';
 import Score, { ScoreCard } from './../Score';
+import Rules from './../Rules';
 import CardBack from './../Images/card_back.png';
 
 const Game = () => {
@@ -130,7 +131,10 @@ const Game = () => {
           scoreClass = {`scoreCol${ind}`}
         />
         )}
-      <ScoreCard score = {{name: 'Total Score', points: totalScore}} />
+      <ScoreCard 
+        score = {{name: 'Total Score', points: totalScore}}
+        scoreClass = {`totalScore`} />
+      <Rules />
     </div>
   )
 }
