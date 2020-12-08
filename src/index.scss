@@ -1,7 +1,7 @@
 $slot-width: 115px;
 $slot-height: 176px;
-$num-rows: 6;
-$num-cols: 10;
+$num-rows: 7;
+$num-cols: 9;
 
 .gameGrid {
   width: $slot-width * $num-cols;
@@ -17,7 +17,7 @@ $num-cols: 10;
   height: $slot-height;
 }
 
-.cardSlot {
+.cardSlot, .scoreCard {
   @include slotRules();
 }
 
@@ -63,16 +63,15 @@ $num-cols: 10;
   }
 }
 
-@for $j from 1 through 5 {
-  .scoreCard:nth-of-type(#{$j}) {
-    @include grid-item($j, 6);
+@for $i from 0 through 4 {
+  .scoreRow#{$i} {
+    @include grid-item($i + 1, 6);
   }
 }
 
-@for $k from 6 through 10 {
-  .scoreCard:nth-of-type(#{$k}) {
-    @include grid-item(6, $k - 5);
-    @include slotRules();
+@for $i from 0 through 4 {
+  .scoreCol#{$i} {
+    @include grid-item(6, $i + 1);
   }
 }
 
@@ -87,11 +86,11 @@ $num-cols: 10;
 
 
 .deckView {
-  @include grid-item(7, 3);
+  @include grid-item(2, 8);
   @include slotRules();
 }
 
 .upCard {
-  @include grid-item(7, 4);
+  @include grid-item(2, 9);
   @include slotRules();
 }

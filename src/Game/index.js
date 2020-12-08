@@ -66,12 +66,12 @@ const Game = () => {
 
   return (
     <Fragment>
-      <div className='buttonContainer'>
-        <button type='button' onClick={onNewGame}>New Game</button>
-        <button type='button' onClick={handleShuffleNewDeck}>Shuffle Deck</button>
-        <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
-      </div>
       <div className='gameGrid'>
+        <div className='buttonContainer'>
+          <button type='button' onClick={onNewGame}>New Game</button>
+          <button type='button' onClick={handleShuffleNewDeck}>Shuffle Deck</button>
+          <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
+        </div>
         {grid.map((row, indRow) => 
           row.map((column, indCol) => column !== null
             ? <CardSlot
@@ -80,7 +80,7 @@ const Game = () => {
               />
             : <div
                 key = { `Empty${indRow}x${indCol}` }
-                className = 'cardSlot'
+                className = 'cardSlot emptySlot'
                 onClick={()=>handleAddCardToGrid(indRow, indCol)}
                 >Empty</div>
           )
@@ -93,12 +93,14 @@ const Game = () => {
           <ScoreCard
             key = {`rowScore${ind}`}
             score = {scoreObj}
+            scoreClass = {`scoreRow${ind}`}
           />
           )}
         {colScore.map((scoreObj, ind) =>
           <ScoreCard
             key = {`colScore${ind}`}
             score = {scoreObj}
+            scoreClass = {`scoreCol${ind}`}
           />
           )}
         <ScoreCard score = {{name: 'Total Score', points: totalScore}} />
