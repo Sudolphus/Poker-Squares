@@ -1,11 +1,12 @@
-$slot-width: 115px;
-$slot-height: 176px;
+$slot-width: 115px * .7;
+$slot-height: 176px * .7;
 $num-rows: 7;
-$num-cols: 11;
+$num-cols: 10;
 
 .gameGrid {
   width: $slot-width * $num-cols;
   height: $slot-height * $num-rows;
+  margin: 0 auto;
   display: grid;
   grid-template: repeat($num-rows, 1fr) / repeat($num-cols, 1fr);
   gap: 0 0;
@@ -69,12 +70,8 @@ $num-cols: 11;
   }
 }
 
-.totalScore {
-  @include grid-item(0, 7);
-}
-
 .deckView {
-  @include grid-item(0, 8);
+  @include grid-item(0, 7);
   @include slotRules();
   button {
     width: 100%;
@@ -84,15 +81,20 @@ $num-cols: 11;
 }
 
 .upCard {
-  @include grid-item(0, 9);
+  @include grid-item(0, 8);
   @include slotRules();
+}
+
+.totalScore {
+  @include grid-item(0, 9);
 }
 
 #rulesText {
   grid-row-start: 1;
   grid-row-end: $num-rows;
-  grid-column-start: 8;
+  grid-column-start: 7;
   grid-column-end: $num-cols;
+  font-size: 15px;
   h3 {
     text-align: center;
   }

@@ -3,7 +3,6 @@ import ScoreCard from './scoreCard';
 const Score = hand => {
   const rankings = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King'];
   const ranks = hand.map(card => rankings.indexOf(card.rank)).sort((x,y) => x-y);
-  console.log(ranks);
   const suits = hand.map(card => card.suit).sort();
   const straight = ranks[0] === 0
     ? (ranks[1] === 1 && ranks[2] === 2 && ranks[3] === 3 && ranks[4] === 4) || (ranks[1] === 9 && ranks[2] === 10 && ranks[3] === 11 && ranks[4] === 12)
