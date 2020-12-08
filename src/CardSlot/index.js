@@ -1,11 +1,12 @@
 import React from 'react';
 
-const CardSlot = ({ card }) => {
+const CardSlot = ({ card, idName }) => {
   const { rank, suit, image } = card;
 
   return (
     <div 
       className = 'cardSlot' 
+      id = {idName}
     >
       <img
         className='cardImage'

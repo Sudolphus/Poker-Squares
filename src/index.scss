@@ -33,64 +33,42 @@ $num-cols: 9;
   grid-column-end: $colStart + 1;
 }
 
-@for $i from 1 through 5 {
-  .cardSlot:nth-of-type(#{$i}) {
-    @include grid-item(1, $i);
-  }
-}
-
-@for $i from 6 through 10 {
-  .cardSlot:nth-of-type(#{$i}) {
-    @include grid-item(2, $i - 5);
-  }
-}
-
-@for $i from 11 through 15 {
-  .cardSlot:nth-of-type(#{$i}) {
-    @include grid-item(3, $i - 10);
-  }
-}
-
-@for $i from 16 through 20 {
-  .cardSlot:nth-of-type(#{$i}) {
-    @include grid-item(4, $i - 15);
-  }
-}
-
-@for $i from 21 through 25 {
-  .cardSlot:nth-of-type(#{$i}) {
-    @include grid-item(5, $i - 20);
+@for $i from 0 through 4 {
+  @for $j from 0 through 4 {
+    #cardSlot#{$i}#{$j} {
+      @include grid-item($i, $j);
+    }
   }
 }
 
 @for $i from 0 through 4 {
   .scoreRow#{$i} {
-    @include grid-item($i + 1, 6);
+    @include grid-item($i, 5);
   }
 }
 
 @for $i from 0 through 4 {
   .scoreCol#{$i} {
-    @include grid-item(6, $i + 1);
+    @include grid-item(5, $i);
   }
 }
 
 .scoreCard:last-of-type {
-  @include grid-item(6, 6);
+  @include grid-item(5, 5);
   @include slotRules();
 }
 
 .buttonContainer {
-  @include grid-item(1, 8);
+  @include grid-item(0, 8);
 }
 
 
 .deckView {
-  @include grid-item(2, 8);
+  @include grid-item(1, 8);
   @include slotRules();
 }
 
 .upCard {
-  @include grid-item(2, 9);
+  @include grid-item(1, 9);
   @include slotRules();
 }

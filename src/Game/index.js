@@ -21,7 +21,33 @@ const Game = () => {
     } else if (dealNext && deck.length === 0) {
       setDealtCard(null);
     }
-  }, [dealNext, deck])
+  }, [dealNext, deck]);
+
+  const handleRowScoreUpdate = rowIndex => {
+    const rowToUpdate = grid[rowIndex];
+    if (!rowToUpdate.includes(null)) {
+      const score = Score(rowToUpdate);
+      const newRowScore = [...rowScore];
+      newRowScore[rowIndex] = score;
+      setRowScore(newRowScore);
+    }
+  }
+
+  const handleColScoreUpdate = colIndex => {
+    const colToUpdate = grid.map(row => row[colIndex]);
+    if (!colToUpdate.includes(null)) {
+      const score = Score(colToUpdate);
+      const newColScore = [...colScore];
+      newColScore[colIndex] = score;
+      setColScore(newColScore);
+    }
+  }
+
+  useEffect(() => {
+    const rowTotal = rowScore.reduce((acc, val) => val !== null ? acc + val.points : acc, 0);
+    const colTotal = colScore.reduce((acc, val) => val !== null ? acc + val.points : acc, 0);
+    setTotalScore(rowTotal + colTotal);
+  }, [colScore, rowScore]);
 
   const handleShuffleNewDeck = () => {
     const newDeck = deckSetup().splice(0, 25);
@@ -39,34 +65,12 @@ const Game = () => {
     setDealNext(true);
   }
 
-  const handleRowScore = row => {
-    const checkRow = grid[row];
-    if (!checkRow.includes(null)) {
-      const rowTotal = Score(checkRow);
-      const newRowScore = [...rowScore];
-      newRowScore[row] = rowTotal;
-      const newTotal = totalScore + rowTotal.points;
-      setRowScore(newRowScore);
-      setTotalScore(newTotal);
-    }
-  }
-
-  const handleColumnScore = column => {
-    const checkColumn = grid.map(arr => arr[column]);
-    if (!checkColumn.includes(null)) {
-      const columnTotal = Score(checkColumn);
-      const newColumnScore = [...colScore];
-      newColumnScore[column] = columnTotal;
-      const newTotal = totalScore + columnTotal.points;
-      setColScore(newColumnScore);
-      setTotalScore(newTotal);
-    }
-  }
-
   const handleAddCardToGrid = (row, column) => {
-    grid[row][column] = dealtCard;
-    handleRowScore(row);
-    handleColumnScore(column);
+    const newGrid = [...grid];
+    newGrid[row][column] = dealtCard;
+    setGrid(newGrid);
+    handleRowScoreUpdate(row);
+    handleColScoreUpdate(column);
     setDealNext(true);
   }
 
@@ -80,11 +84,13 @@ const Game = () => {
           row.map((column, indCol) => column !== null
             ? <CardSlot
                 key = { `Card${indRow}x${indCol}` }
+                idName = {`cardSlot${indRow}${indCol}`}
                 card = { column }
               />
             : <div
                 key = { `Empty${indRow}x${indCol}` }
                 className = 'cardSlot emptySlot'
+                id = {`cardSlot${indRow}${indCol}`}
                 onClick={()=>handleAddCardToGrid(indRow, indCol)}
                 >Empty</div>
           )
