@@ -5,12 +5,12 @@ import { points } from './points';
 const Rules = () =>
   <div id='rulesText'>
     <h3>Poker Squares</h3>
-    <p>
-      In poker squares, your goal is to make the best poker hands possible on the grid, both horizontally and vertically.
-      The deck contains 25 cards from a standard pack of 52, which you'll place one at a time on the grid.
-      Be careful! Once a card is added to the grid, it can't be moved!
-      Once you've placed five cards in a given row or column, you'll score points accordingly:
-    </p>
+    <ul>
+      <li>In poker squares, your goal is to make the best poker hands possible on the grid, both horizontally and vertically.</li>
+      <li>The deck contains 25 cards from a standard pack of 52, which you'll place one at a time on the grid.</li>
+      <li>Be careful! Once a card is added to the grid, it can't be moved!</li>
+      <li>Once you've placed five cards in a given row or column, you'll score points accordingly:</li>
+    </ul>
     <table>
       <thead>
         <tr>

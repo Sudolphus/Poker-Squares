@@ -109,7 +109,7 @@ const Game = () => {
               className = 'cardSlot emptySlot'
               id = {`cardSlot${indRow}${indCol}`}
               onClick={()=>handleAddCardToGrid(indRow, indCol)}
-              >Empty</div>
+              ><p>Empty</p></div>
         )
       )}
       <CardInterface

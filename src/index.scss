@@ -1,7 +1,7 @@
 $slot-width: 115px;
 $slot-height: 176px;
 $num-rows: 7;
-$num-cols: 10;
+$num-cols: 11;
 
 .gameGrid {
   width: $slot-width * $num-cols;
@@ -15,11 +15,23 @@ $num-cols: 10;
   border: 1px solid black;
   width: $slot-width;
   height: $slot-height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  div {
+    text-align: center;
+  }
 }
 
-.cardSlot, .scoreCard {
+.cardSlot {
   @include slotRules();
 }
+
+.scoreCard {
+  @include slotRules();
+  border: none;
+}
+
 
 .emptySlot {
   cursor: pointer;
@@ -58,14 +70,8 @@ $num-cols: 10;
 }
 
 .totalScore {
-  @include grid-item(5, 5);
-  @include slotRules();
+  @include grid-item(0, 7);
 }
-
-.buttonContainer {
-  @include grid-item(0, 8);
-}
-
 
 .deckView {
   @include grid-item(0, 8);
@@ -83,7 +89,7 @@ $num-cols: 10;
 }
 
 #rulesText {
-  grid-row-start: 2;
+  grid-row-start: 1;
   grid-row-end: $num-rows;
   grid-column-start: 8;
   grid-column-end: $num-cols;

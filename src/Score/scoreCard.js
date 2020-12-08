@@ -6,8 +6,10 @@ const ScoreCard = ({ score, scoreClass }) => {
   
   return (
     <div className = {`scoreCard ${scoreClass}`}>
-      <p>{ name }</p>
-      <p>{ points }</p> 
+      <div>
+        <p>{ name }</p>
+        <p>{ points }</p> 
+      </div>
     </div>
   )
 }
