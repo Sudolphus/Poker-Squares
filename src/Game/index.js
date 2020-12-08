@@ -1,8 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import deckSetup from './../Deck';
 import CardInterface from './../CardInterface';
 import CardSlot from './../CardSlot';
 import Score, { ScoreCard } from './../Score';
+import CardBack from './../Images/card_back.png';
 
 const Game = () => {
   const [deck, setDeck] = useState([]);
@@ -74,48 +75,48 @@ const Game = () => {
     setDealNext(true);
   }
 
+  const cardInterfaceContent = deck.length === 0
+    ? <button type='button' onClick={onNewGame}>New Game</button>
+    : <img className='cardImage' src={CardBack} alt='Deck' />
+
   return (
-    <Fragment>
-      <div className='gameGrid'>
-        <div className='buttonContainer'>
-          <button type='button' onClick={onNewGame}>New Game</button>
-        </div>
-        {grid.map((row, indRow) => 
-          row.map((column, indCol) => column !== null
-            ? <CardSlot
-                key = { `Card${indRow}x${indCol}` }
-                idName = {`cardSlot${indRow}${indCol}`}
-                card = { column }
-              />
-            : <div
-                key = { `Empty${indRow}x${indCol}` }
-                className = 'cardSlot emptySlot'
-                id = {`cardSlot${indRow}${indCol}`}
-                onClick={()=>handleAddCardToGrid(indRow, indCol)}
-                >Empty</div>
-          )
-        )}
-        <CardInterface
-          cardsRemaining={deck.length}
-          upCard={dealtCard}
+    <div className='gameGrid'>
+      {grid.map((row, indRow) => 
+        row.map((column, indCol) => column !== null
+          ? <CardSlot
+              key = { `Card${indRow}x${indCol}` }
+              idName = {`cardSlot${indRow}${indCol}`}
+              card = { column }
+            />
+          : <div
+              key = { `Empty${indRow}x${indCol}` }
+              className = 'cardSlot emptySlot'
+              id = {`cardSlot${indRow}${indCol}`}
+              onClick={()=>handleAddCardToGrid(indRow, indCol)}
+              >Empty</div>
+        )
+      )}
+      <CardInterface
+        content = {cardInterfaceContent}
+        cardsRemaining = {deck.length}
+        upCard = {dealtCard}
+      />
+      {rowScore.map((scoreObj, ind) =>
+        <ScoreCard
+          key = {`rowScore${ind}`}
+          score = {scoreObj}
+          scoreClass = {`scoreRow${ind}`}
         />
-        {rowScore.map((scoreObj, ind) =>
-          <ScoreCard
-            key = {`rowScore${ind}`}
-            score = {scoreObj}
-            scoreClass = {`scoreRow${ind}`}
-          />
-          )}
-        {colScore.map((scoreObj, ind) =>
-          <ScoreCard
-            key = {`colScore${ind}`}
-            score = {scoreObj}
-            scoreClass = {`scoreCol${ind}`}
-          />
-          )}
-        <ScoreCard score = {{name: 'Total Score', points: totalScore}} />
-      </div>
-    </Fragment>
+        )}
+      {colScore.map((scoreObj, ind) =>
+        <ScoreCard
+          key = {`colScore${ind}`}
+          score = {scoreObj}
+          scoreClass = {`scoreCol${ind}`}
+        />
+        )}
+      <ScoreCard score = {{name: 'Total Score', points: totalScore}} />
+    </div>
   )
 }
 

@@ -21,6 +21,10 @@ $num-cols: 9;
   @include slotRules();
 }
 
+.emptySlot {
+  cursor: pointer;
+}
+
 .cardImage {
   width: 100%;
   height: 100%;
@@ -64,11 +68,25 @@ $num-cols: 9;
 
 
 .deckView {
-  @include grid-item(1, 8);
+  @include grid-item(0, 8);
   @include slotRules();
+  button {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+.cardsRemaining {
+  @include grid-item(1, 8);
+  visibility: hidden;
+}
+
+.deckView:hover + .cardsRemaining {
+  visibility: visible;
 }
 
 .upCard {
-  @include grid-item(1, 9);
+  @include grid-item(0, 9);
   @include slotRules();
 }

@@ -1,11 +1,12 @@
 import React, { Fragment } from 'react';
 
-const CardInterface = ({ cardsRemaining, upCard }) => {
+const CardInterface = ({ content, cardsRemaining, upCard }) => {
   return (
     <Fragment>
       <div className='deckView'>
-        Cards remaining in deck: {cardsRemaining}
+        { content }
       </div>
+      {cardsRemaining > 0 && <div className='cardsRemaining'>{cardsRemaining} in Deck</div>}
       {upCard === null
         ? <div className='upCard'>
             <p>None!</p>
