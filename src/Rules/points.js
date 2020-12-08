@@ -1,17 +1,17 @@
 export const points = [
   {
     rank: 'Royal Flush',
-    points: 75,
+    points: 100,
     tooltip: 'Ace, King, Queen, Jack, and 10 of a single suit'
   },
   {
     rank: 'Straight Flush',
-    points: 50,
+    points: 75,
     tooltip: 'A hand that is both a straight and a flush'
   },
   {
     rank: 'Four of A Kind',
-    points: 25,
+    points: 50,
     tooltip: '4 cards of the same rank'
   },
   {

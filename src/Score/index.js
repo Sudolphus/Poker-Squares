@@ -1,46 +1,18 @@
 import ScoreCard from './scoreCard';
+import isStraight from './straight';
+import isFlush from './flush';
+import pairs from './pairs';
 
-const Score = arr => {
-  const rankings = ['Ace', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten', 'Jack', 'Queen', 'King', 'Ace'];
-  const [handRanks, handSuits] = [[], []];
-  for (let card of arr) {
-    handRanks.push(card.rank);
-    handSuits.push(card.suit);
-  }
-  let [straight, flush, fourOfAKind, threeOfAKind, numPairs] = [false, true, false, false, 0];
-  for (let i = 0; i <= 9; ++i) {
-    if (handRanks.includes(rankings[i]) && handRanks.includes(rankings[i] + 1) && handRanks.includes(rankings[i] + 2) && handRanks.includes(rankings[i] + 3) && handRanks.includes(rankings[i] + 4)) {
-      straight = true;
-      break;
-    }
-  }
-  for (let i = 1; i < 5; ++i) {
-    if (handSuits[i] !== handSuits[0]) {
-      flush = false;
-      break;
-    }
-  }
-  if (!straight && !flush) {
-    for (let rank of rankings.slice(1)) {
-      let count = 0;
-      for (let card of handRanks) {
-        if (card === rank) {
-          count++;
-        }
-      }
-      if (count === 4) {
-        fourOfAKind = true;
-        break;
-      } else if (count === 3) {
-        threeOfAKind = true;
-      } else if (count === 2) {
-        numPairs++;
-      }
-    }
-  }
+const Score = hand => {
+  const ranks = hand.map(card => card.rank).sort();
+  const straight = isStraight(ranks);
+  const flush = isFlush(hand);
+  const fourOfAKind = ranks[0] === ranks[3] || ranks[1] === ranks[4];
+  const threeOfAKind = ranks[0] === ranks[2] || ranks[1] === ranks[3] || ranks[2] === ranks[4];
+  const numPairs = pairs(ranks);
 
   let [name, points] = [null, null];
-  if (straight && flush && handRanks.includes('Ace') && handRanks.includes('King')) {
+  if (straight && flush && ranks[4] === 'Ace') {
     [name, points] = ['Royal Flush', 100];
   } else if (straight && flush) {
     [name, points] = ['Straight Flush', 75];
