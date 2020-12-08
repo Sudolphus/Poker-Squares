@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import deckSetup from './../Deck';
 import CardInterface from './../CardInterface';
 import CardSlot from './../CardSlot';
@@ -11,11 +11,17 @@ const Game = () => {
   const [totalScore, setTotalScore] = useState(0);
   const [rowScore, setRowScore] = useState([null, null, null, null, null]);
   const [colScore, setColScore] = useState([null, null, null, null, null]);
+  const [dealNext, setDealNext] = useState(false);
 
-  const handleDealTopCard = () => {
-    const newDealtCard = deck.pop();
-    setDealtCard(newDealtCard);
-  }
+  useEffect(() => {
+    if (dealNext && deck.length > 0) {
+      setDealNext(false);
+      const newDealtCard = deck.pop();
+      setDealtCard(newDealtCard);
+    } else if (dealNext && deck.length === 0) {
+      setDealtCard(null);
+    }
+  }, [dealNext, deck])
 
   const handleShuffleNewDeck = () => {
     const newDeck = deckSetup().splice(0, 25);
@@ -23,12 +29,14 @@ const Game = () => {
   }
 
   const onNewGame = () => {
+    setDealNext(false);
     handleShuffleNewDeck();
     setDealtCard(null);
     setGrid([[null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null], [null, null, null, null, null]]);
     setRowScore([null, null, null, null, null]);
     setColScore([null, null, null, null, null]);
     setTotalScore(0);
+    setDealNext(true);
   }
 
   const handleRowScore = row => {
@@ -59,9 +67,7 @@ const Game = () => {
     grid[row][column] = dealtCard;
     handleRowScore(row);
     handleColumnScore(column);
-    if (deck.length > 0) {
-      handleDealTopCard();
-    }
+    setDealNext(true);
   }
 
   return (
@@ -69,8 +75,6 @@ const Game = () => {
       <div className='gameGrid'>
         <div className='buttonContainer'>
           <button type='button' onClick={onNewGame}>New Game</button>
-          <button type='button' onClick={handleShuffleNewDeck}>Shuffle Deck</button>
-          <button type='button' onClick={handleDealTopCard}>Deal Top Card</button>
         </div>
         {grid.map((row, indRow) => 
           row.map((column, indCol) => column !== null
