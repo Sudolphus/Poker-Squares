@@ -77,15 +77,6 @@ $num-cols: 9;
   }
 }
 
-.cardsRemaining {
-  @include grid-item(1, 8);
-  visibility: hidden;
-}
-
-.deckView:hover + .cardsRemaining {
-  visibility: visible;
-}
-
 .upCard {
   @include grid-item(0, 9);
   @include slotRules();

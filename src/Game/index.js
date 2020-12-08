@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
+import ReactTooltip from 'react-tooltip';
 import deckSetup from './../Deck';
 import CardInterface from './../CardInterface';
 import CardSlot from './../CardSlot';
@@ -77,7 +78,21 @@ const Game = () => {
 
   const cardInterfaceContent = deck.length === 0
     ? <button type='button' onClick={onNewGame}>New Game</button>
-    : <img className='cardImage' src={CardBack} alt='Deck' />
+    : <Fragment>
+        <img 
+          className='cardImage' 
+          src={CardBack} 
+          alt='Deck'
+          data-for='main'
+          data-tip={`${deck.length} cards remain`}
+          data-iscapture='true'
+        />
+        <ReactTooltip 
+          id='main'
+          place='bottom'
+          effect='solid'
+        />
+      </Fragment>
 
   return (
     <div className='gameGrid'>
